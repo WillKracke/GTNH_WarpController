@@ -21,7 +21,7 @@ while loop do
     else
         for i = 1, tspr.getInventorySize(sides.front) do
             local item = tspr.getStackInSlot(sides.front, i);
-            print(item);
+            print(item.label);
             os.sleep(1);
             if not item == nil then
                 print(item.label);
