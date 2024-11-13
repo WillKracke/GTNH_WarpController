@@ -13,10 +13,10 @@ while true do
     end
     print("-----");
     print("Available Destinations: ");
-    if tspr.getInventoryStorageSize(sides.front) == nil then
+    if tspr.getInventorySize(sides.front) == nil then
         print("ERROR: No Inventory Attached to Front!")
     else
-        for i = 1, tspr.getInventoryStorageSize(sides.up) do
+        for i = 1, tspr.getInventorySize(sides.up) do
             local item = tspr.getStackInSlot(sides.up, i);
             if not item == nil then
                 print(item.label);
