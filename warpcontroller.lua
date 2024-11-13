@@ -8,7 +8,7 @@ while true do
     print("Current Dest: " .. tspr.getStackInSlot(sides.up, 1));
     print("-----");
     print("Available Destinations: ");
-    for i = 1, tspr.getInventoryStorageSide(sides.front) do
+    for i = 1, tspr.getInventoryStorageSize(sides.front) do
         local item = tspr.getStackInSlot(sides.front, i);
         if not item == nil then
             print(item.label);
