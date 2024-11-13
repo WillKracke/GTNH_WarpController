@@ -5,13 +5,22 @@ local tspr = component.transposer;
 
 while true do
     print("-----");
-    print("Current Dest: " .. tspr.getStackInSlot(sides.up, 1));
+    local current = tspr.getStackInSlot(sides.up, 1);
+    if current == nil then
+        print("No Current Destination")
+    else
+        print("Current Destination: " .. current.label);
+    end
     print("-----");
     print("Available Destinations: ");
-    for i = 1, tspr.getInventoryStorageSize(sides.up) do
-        local item = tspr.getStackInSlot(sides.up, i);
-        if not item == nil then
-            print(item.label);
+    if tspr.getInventoryStorageSize(sides.front) == nil then
+        print("ERROR: No Inventory Attached to Front!")
+    else
+        for i = 1, tspr.getInventoryStorageSize(sides.up) do
+            local item = tspr.getStackInSlot(sides.up, i);
+            if not item == nil then
+                print(item.label);
+            end
         end
     end
 
