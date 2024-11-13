@@ -1,4 +1,5 @@
 local component = require("component");
+local term = require("term");
 local sides = require("sides");
 
 local tspr = component.transposer;
@@ -6,6 +7,7 @@ local tspr = component.transposer;
 local loop = true;
 
 while loop do
+    term.clear();
     print("-----");
     local current = tspr.getStackInSlot(sides.up, 1);
     if current == nil then
@@ -38,10 +40,11 @@ while loop do
         if input == "exit" then
             loop = false;
         else
-            tspr.transferItem(sides.up, sides.front, 1, 1, emptyslot);
             for i = 1, tspr.getInventorySize(sides.front) do
                 local item = tspr.getStackInSlot(sides.front, i);
                 if item ~= nil and item.label == input then
+                    tspr.transferItem(sides.up, sides.front, 1, 1, emptyslot);
+                    emptyslot = nil;
                     tspr.transferItem(sides.front, sides.up, 1, i, 1)
                 end
             end
