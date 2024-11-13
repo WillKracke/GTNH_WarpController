@@ -41,7 +41,7 @@ while loop do
             tspr.transferItem(sides.up, sides.front, 1, 1, emptyslot);
             for i = 1, tspr.getInventorySize(sides.front) do
                 local item = tspr.getStackInSlot(sides.front, i);
-                if item.label == input then
+                if item ~= nil and item.label == input then
                     tspr.transferItem(sides.front, sides.up, 1, i, 1)
                 end
             end
