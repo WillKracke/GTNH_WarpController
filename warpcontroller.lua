@@ -5,7 +5,7 @@ local tspr = component.transposer;
 
 while true do
     print("-----");
-    print("Current Dest: " + tspr.getStackInSlot(sides.up, 1));
+    print("Current Dest: " .. tspr.getStackInSlot(sides.up, 1));
     print("-----");
     print("Available Destinations: ");
     for i = 1, tspr.getInventoryStorageSide(sides.front) do
