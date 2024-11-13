@@ -3,7 +3,9 @@ local sides = require("sides");
 
 local tspr = component.transposer;
 
-while true do
+local loop = true;
+
+while loop do
     print("-----");
     local current = tspr.getStackInSlot(sides.up, 1);
     if current == nil then
@@ -16,8 +18,8 @@ while true do
     if tspr.getInventorySize(sides.front) == nil then
         print("ERROR: No Inventory Attached to Front!")
     else
-        for i = 1, tspr.getInventorySize(sides.up) do
-            local item = tspr.getStackInSlot(sides.up, i);
+        for i = 1, tspr.getInventorySize(sides.front) do
+            local item = tspr.getStackInSlot(sides.front, i);
             if not item == nil then
                 print(item.label);
             end
@@ -27,5 +29,7 @@ while true do
     print("=====");
     print("Input Target");
     local input = io.read();
-
+    if input == "exit" then
+        loop = false;
+    end
 end
