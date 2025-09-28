@@ -18,19 +18,36 @@ while loop do
     print("-----");
 
     local emptyslot = nil;
+    local destlist = {};
+    local maxlinelen = 35;
 
-    print("Available Destinations: ");
     if tspr.getInventorySize(sides.front) == nil then
         print("ERROR: No Inventory Attached to Front!");
     else
         for i = 1, tspr.getInventorySize(sides.front) do
             local item = tspr.getStackInSlot(sides.front, i);
             if item ~= nil then
-                print(item.label);
+                -- print(item.label);
+                destlist[#destlist + 1] = item.label;
             else
                 if emptyslot == nil then
                     emptyslot = i;
                 end
+            end
+        end
+        if #destlist > 0 then
+            print("Available Destinations: ");
+            local currentindex = 1;
+            while currentindex <= #destlist do
+                local outputstr = "";
+                while #outputstr < maxlinelen do
+                    outputstr = outputstr .. "[" .. destlist[currentindex] .. "] ";
+                    currentindex = currentindex + 1;
+                    if currentindex <= #destlist then
+                        break
+                    end
+                end
+                print(outputstr);
             end
         end
 
