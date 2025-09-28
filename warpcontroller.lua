@@ -35,6 +35,7 @@ while loop do
                 end
             end
         end
+        local x = io.read()
         if #destlist > 0 then
             print("Available Destinations: ");
             local currentindex = 1;
