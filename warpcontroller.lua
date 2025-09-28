@@ -36,6 +36,7 @@ while loop do
                 end
             end
         end
+        print("XXXXX")
         local x = io.read()
         if #destlist > 0 then
             print("Available Destinations: ");
