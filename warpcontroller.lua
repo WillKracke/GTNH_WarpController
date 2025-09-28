@@ -28,6 +28,7 @@ while loop do
             local item = tspr.getStackInSlot(sides.front, i);
             if item ~= nil then
                 -- print(item.label);
+                local x = io.read()
                 destlist[#destlist + 1] = item.label;
             else
                 if emptyslot == nil then
