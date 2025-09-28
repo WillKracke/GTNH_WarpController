@@ -28,7 +28,6 @@ while loop do
             local item = tspr.getStackInSlot(sides.front, i);
             if item ~= nil then
                 -- print(item.label);
-                local x = io.read()
                 destlist[#destlist + 1] = item.label;
             else
                 if emptyslot == nil then
@@ -36,8 +35,6 @@ while loop do
                 end
             end
         end
-        print("XXXXX")
-        local x = io.read()
         if #destlist > 0 then
             print("Available Destinations: ");
             local currentindex = 1;
@@ -46,7 +43,7 @@ while loop do
                 while #outputstr < maxlinelen do
                     outputstr = outputstr .. "[" .. destlist[currentindex] .. "] ";
                     currentindex = currentindex + 1;
-                    if currentindex <= #destlist then
+                    if currentindex > #destlist then
                         break
                     end
                 end
